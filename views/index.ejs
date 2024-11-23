@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+<div class="container mx-auto px-4 py-8">
+    <nav class="mb-8 border-b border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex-shrink-0">
+                    <span class="text-3xl font-bold">Notes App</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="flex items-baseline space-x-4">
+                        <a href="/" class="px-3 py-2 rounded-md text-xl font-medium hover:bg-gray-100 hover:text-gray-900 transition duration-300">Home</a>
+                        <a href="/new" class="px-3 py-2 rounded-md text-xl font-medium hover:bg-gray-100 hover:text-gray-900 transition duration-300">Create Note</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8"></div>
+        <% files.forEach(file => { %>
+            <div class="bg-white p-4 rounded shadow-xl">
+                <h2 class="text-xl font-semibold mb-2"><%= file.name %></h2>
+                <p class="text-gray-600 mb-4"><%= file.description %></p>
+                <div class="flex space-x-2">
+                    <a href="/<%= file.name %>" class="text-blue-500 hover:underline">View Note</a>
+                    <a href="/delete?fileName=<%= file.name %>" class="text-red-500 hover:underline"><i class="ri-delete-bin-line"></i>Delete Note</a>
+                    <a href="/Update?fileName=<%= file.name %>" class="text-green-600 hover:underline">Update</a>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
+</body>
+</html>
