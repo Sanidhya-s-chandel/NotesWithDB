@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const fileSchema  = require("./models/user.model")
+const fileModel  = require("./models/user.model")
 
 require("./config/db.config")
 app.set("view engine", "ejs");
@@ -16,10 +16,12 @@ app.get("/new",(req,res)=>{
 });
 
 app.post("/new",async function(req,res){
-    const {fileName,Description,Data} = req.body;
+    const {fileName,description,data} = req.body;
 
-    const newFile = await fileSchema.create({
-        fileName,Description,Data
+    const newFile = await fileModel.create({
+        fileName: fileName,
+        description: description,
+        data: data,
     });
 
     console.log(newFile);

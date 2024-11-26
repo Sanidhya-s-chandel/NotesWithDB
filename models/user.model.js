@@ -1,21 +1,11 @@
 const mongoose = require("mongoose");
 
 const fileSchema = new mongoose.Schema({
-    fileName: {
-        type: String,
-        required: true,
-        unique: true
-    },
+    
+    fileName: String,
+    description: String,
+    data: String
 
-    description: {
-        type: String,
-        required: true
-    },
-
-    Data: {
-        type : String,
-        required: true
-    }
 },{timestamps: true});
 
 const file = mongoose.model("file",fileSchema);
