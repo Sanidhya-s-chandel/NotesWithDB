@@ -23,19 +23,29 @@
             </div>
         </div>
     </nav>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8"></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
         <% files.forEach(file => { %>
-            <div class="bg-white p-4 rounded shadow-xl">
-                <h2 class="text-xl font-semibold mb-2"><%= file.name %></h2>
-                <p class="text-gray-600 mb-4"><%= file.description %></p>
-                <div class="flex space-x-2">
-                    <a href="/<%= file.name %>" class="text-blue-500 hover:underline">View Note</a>
-                    <a href="/delete?fileName=<%= file.name %>" class="text-red-500 hover:underline"><i class="ri-delete-bin-line"></i>Delete Note</a>
-                    <a href="/Update?fileName=<%= file.name %>" class="text-green-600 hover:underline">Update</a>
+            <div class="bg-white p-4 rounded shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                <h2 class="text-2xl font-semibold mb-2 text-gray-800 truncate">
+                    <%= file.fileName %>
+                </h2>
+                <p class="text-gray-600 mb-4 line-clamp-3">
+                    <%= file.description %>
+                </p>
+                <div class="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
+                    <a href="/<%= file.fileName %>" class="text-blue-500 hover:underline">
+                        View Note
+                    </a>
+                    <a href="/delete?fileName=<%= file.fileName %>" class="text-red-500 flex items-center hover:underline">
+                        <i class="ri-delete-bin-line"></i> Delete Note
+                    </a>
+                    <a href="/update?fileName=<%= file.fileName %>" class="text-green-600 hover:underline">
+                        Update
+                    </a>
                 </div>
             </div>
         <% }); %>
-    </div>
+    </div>    
 </div>
 </body>
 </html>
