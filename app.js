@@ -31,6 +31,11 @@ app.post("/new",async function(req,res){
     res.redirect("/");
 });
 
+app.get("/:filename", async (req,res)=>{
+    let file = await fileModel.findOne({fileName : req.params.filename})
+    res.render("vieww",{file});
+});
+
 app.listen(3000,()=>{
     console.log("The Server is running at Port: 3000");
 });
