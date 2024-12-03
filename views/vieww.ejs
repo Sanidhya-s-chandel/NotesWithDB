@@ -8,6 +8,18 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
 </head>
 <body>
-    
+    <div class="main p-8 min-h-screen bg-black text-white flex flex-col justify-between">
+        <div>
+            <div class="flex items-center gap-8">
+                <h1 class="text-3xl mb-4 font-bold">Description :</h1>
+                <p class="text-2xl font-semibold mb-4"><%= file.description %></p>
+            </div>
+            <h1 class="text-3xl mb-4 font-bold">Note :</h1>
+            <p class="text-xl mb-4 font-semibold"><%= file.data %></p>
+        </div>
+        <div class="mt-8">
+            <a href="/" class="text-xl text-white font-bold hover:underline">Back Home</a>
+        </div>
+    </div>
 </body>
 </html>

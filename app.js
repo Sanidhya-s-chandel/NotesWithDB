@@ -31,10 +31,16 @@ app.post("/new",async function(req,res){
     res.redirect("/");
 });
 
-app.get("/:filename", async (req,res)=>{
-    let file = await fileModel.findOne({fileName : req.params.filename})
+app.get("/view/:fileName", async (req,res)=>{
+    let file = await fileModel.findOne({fileName : req.params.fileName});
     res.render("vieww",{file});
 });
+
+app.get("/delete/:id", async (req,res)=>{
+    await fileModel.findOneAndDelete({_id : req.params.id});
+    // console.log(req.params)
+    res.redirect("/");
+}); 
 
 app.listen(3000,()=>{
     console.log("The Server is running at Port: 3000");
